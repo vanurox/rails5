@@ -1,2 +1,14 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<h1>Enter Details</h1>
+<form action="/users/create" method="post">
+    Enter Email:- <input type="text" name="email"/> <br>
+    Enter Username:- <input type="text" name="username"/> <br>
+    <button type="submit">Save User</button>
+</form>
+
+<% if @users && @users.size > 0  %>
+<% @users.each do |u| %>
+<p>
+    <%= u.email %> with username :- <%= u.username %>
+</p>
+<% end %>
+<% end %>
