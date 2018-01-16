@@ -2,7 +2,8 @@ class CreateUsers < ActiveRecord::Migration[5.1]
   def change
     create_table :users do |t|
       t.string :email
-      t.string :username
+      t.string :username, :limit => 50
+      t.boolean :active, :default => true
       t.timestamps
     end
   end
