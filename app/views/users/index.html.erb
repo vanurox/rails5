@@ -5,6 +5,20 @@
     <button type="submit">Save User</button>
 </form>
 
+<h1>
+	<% if @msg && @msg.class != String %> 
+		<% @msg.each do |m| %> 
+			<h2>
+				<%= m %> 
+			</h2>
+		<% end %> 
+	<% else %> 
+		<h1>
+			<%= @msg %> 
+		</h1>
+	<% end %> 
+</h1>
+
 <% if @users && @users.size > 0  %>
 <% @users.each do |u| %>
 <p>

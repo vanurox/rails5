@@ -16,11 +16,12 @@ class UsersController < ApplicationController
     user = User.new
     user.email = email
     user.username = username
-    if user.save
+    if user.valid? && user.save
       @msg = "User Saved successfully!!"
     else
-      @msg = "Error while saving user"
+      @msg = user.errors.full_messages
     end
+    # byebug
     @users = User.all
     # redirect_to :controller=> "users", :action => "index"
         
