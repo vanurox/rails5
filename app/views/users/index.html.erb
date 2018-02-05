@@ -22,7 +22,7 @@
 <% if @users && @users.size > 0  %>
 <% @users.each do |u| %>
 <p>
-    <%= u.email %> with username :- <%= u.username %>
+    <%= u.email %> with username :- <%= u.username %> <a href='/users/delete?id=<%= u.id %>'> Delete </a> 
 </p>
 <% end %>
 <% end %>

@@ -28,6 +28,18 @@ class UsersController < ApplicationController
       render 'index'    
   end
 
+
+  def delete
+    id = params[:id]
+    user = User.find_by_id(id)
+    if user && user.destroy!
+      redirect_to :action => "index"
+    else
+      redirect_to :action => "index"
+    end
+  end
+
+
   def show
     
   end
