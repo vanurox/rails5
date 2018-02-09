@@ -1,9 +1,18 @@
 <h1>Enter Details</h1>
-<form action="/users/create" method="post">
+<!-- <form action="/users/create" method="post">
     Enter Email:- <input type="text" name="email"/> <br>
     Enter Username:- <input type="text" name="username"/> <br>
     <button type="submit">Save User</button>
-</form>
+</form> -->
+
+
+<%= form_for @user, :url=> {} do |f| %>
+	<%= f.text_field :email %> <br>
+	<%= f.text_field :username %> <br>
+	<%= submit_tag("Save User") %> <br>
+
+<% end %>
+
 
 <h1>
 	<% if @msg && @msg.class != String %> 

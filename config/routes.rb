@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
-  get 'users/index'
+  # get 'users/index'
 
-  get 'users/show'
+  # get 'users/show'
 
-  post "users/create"
+  # post "users/create"
   
   get "users/delete"
+
+  resources :users
 
   root "users#index"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

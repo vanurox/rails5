@@ -2,30 +2,48 @@ class UsersController < ApplicationController
   def index
     # render 'show'
     # redirect_to :controller=> "users", :action => "show"
+    @user = User.new
     @users = User.all
 
   end
 
   def create
-    # puts params.inspect
-    # if params[:controller] == "users"
+    # # puts params.inspect
+    # # if params[:controller] == "users"
+    # # end
+    # # exit!
+    # email = params[:email]
+    # username = params[:username]
+    # user = User.new
+    # user.email = email
+    # user.username = username
+    # if user.valid? && user.save
+    #   @msg = "User Saved successfully!!"
+    # else
+    #   @msg = user.errors.full_messages
     # end
-    # exit!
-    email = params[:email]
-    username = params[:username]
-    user = User.new
-    user.email = email
-    user.username = username
+    # # byebug
+    # @users = User.all
+    # # redirect_to :controller=> "users", :action => "index"
+        
+    #   render 'index'    
+
+
+
+    user = User.new(user_params)
+
     if user.valid? && user.save
       @msg = "User Saved successfully!!"
     else
       @msg = user.errors.full_messages
     end
-    # byebug
     @users = User.all
     # redirect_to :controller=> "users", :action => "index"
-        
-      render 'index'    
+        @user = User.new
+      render 'index'
+
+
+
   end
 
 
@@ -42,5 +60,11 @@ class UsersController < ApplicationController
 
   def show
     
+  end
+
+
+  private 
+  def user_params
+    params.require(:user).permit(:email,:username)
   end
 end
