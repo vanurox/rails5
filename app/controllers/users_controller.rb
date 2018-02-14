@@ -62,6 +62,26 @@ class UsersController < ApplicationController
     
   end
 
+  def edit
+    @id = params[:id]
+    @user = User.find_by_id(@id)
+  end
+
+
+  def update
+    id = params[:user][:id]
+    user = User.find_by_id(id)
+    if user.update_attributes(user_params)
+      @msg = "User Updated successfully!!"
+    else
+      @msg = user.errors.full_messages
+    end
+     @users = User.all
+     @user = User.new
+      render 'index'
+
+  end
+
 
   private 
   def user_params

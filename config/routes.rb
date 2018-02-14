@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   # post "users/create"
   
   get "users/delete"
+  get "users/edit"
+  post "users/update"
 
   resources :users
 

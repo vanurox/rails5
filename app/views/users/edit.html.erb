@@ -1,0 +1,7 @@
+<%= form_for @user, :url=> {:action=> 'update'} do |f| %>
+	<%= f.text_field :id %> <br>
+	<%= f.text_field :email %> <br>
+	<%= f.text_field :username %> <br>
+	<%= submit_tag("Update User") %> <br>
+
+<% end %>
