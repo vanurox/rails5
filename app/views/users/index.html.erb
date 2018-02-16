@@ -1,3 +1,10 @@
+<style type="text/css">
+	.mino{
+		background:#fff;
+		color:#f00;
+		padding:20px;
+	}
+</style>
 <h1>Enter Details</h1>
 <!-- <form action="/users/create" method="post">
     Enter Email:- <input type="text" name="email"/> <br>
@@ -7,9 +14,8 @@
 
 
 <%= form_for @user, :url=> {} do |f| %>
-	<%= f.text_field :email %> <br>
-	<%= f.text_field :username %> <br>
-	<%= submit_tag("Save User") %> <br>
+	
+	<%= render  :partial => 'users/shared/form', :locals => { f: f } %> 
 
 <% end %>
 
